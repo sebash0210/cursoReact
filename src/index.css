@@ -59,40 +59,7 @@ body {
   width: 170px;
 }
 
-.listExperence section{
-  display: flex;
-  box-shadow: 5px 1px 6px #ebe7e7;
-  border: #cccccc;
-  border-radius: 9px;
-  padding: 0;
-  margin: 5px;
-}
-.listExperence div{
-  padding: 0;
-  margin: 1px 10px;
-}
-.listExperence article{ 
-  width: 20%;
-  height: 50px;
-  padding: 10px;
-  background-size: cover;
-  border-top-left-radius: 9px;
-  border-bottom-left-radius:9px;
-  opacity: 0.8;
-  
-}
-.listExperence article:hover{
-  opacity: 1;
-  cursor: pointer;
-}
-.listExperence section h2, .listExperence section h6,.listExperence section h4{
-  padding: 0;
-  margin: 0;
-  color: #484848;
-  font-weight: 400;
-  font-size: 0.9em;
-  text-decoration:none;
-}
+
 .card-detail{
   border: 1px solid #cccccc;
   box-shadow: 1px 2px 2px #cccccc;
@@ -121,10 +88,60 @@ body {
    background-color: #00A699;
    color: #ffffff;
    font-size:1.1em;
-   opacity: 0.8;
+   opacity: 0.9;
+   outline:none;
   }
  
   .button:hover{
     opacity: 1;
     cursor: pointer;
   }
+
+  .housing{
+    display: flex;
+    border: 1px solid #f2f2f2;
+    box-shadow: 1px 2px 2px  #ccc;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .housing img{
+    width: 200px;
+ }
+  
+ .housing div{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 10px;
+ }
+  
+ .housing h3{
+   margin: 0px;
+   font-weight: 300;
+ }
+  
+ .housing h6{
+   margin: 0px;
+ }
+
+ .score{
+    display:flex;
+    align-items: center;
+}
+
+.score div {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+ .score p {
+    padding: 0px;
+    margin:0 10px;
+ }
+ .score div i {
+  color:#00A699;
+}
