@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
 
+export const CardDetail = ({image , description}) => {
 
-export const CardDetail = () => (
-    <article className="card-detail">
-        <img src='https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/08/3a/bd/fe.jpg'/>
-        <p>
-            Lorem ..........jhkhjhjkhkhkj
-        </p>
-    </article>
-)
+    return (
+        <article className="card-detail">
+            <img src={image}/>
+            <p>
+                {description}
+            </p>
+        </article>
+    )
+}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React , {useEffect, useState } from 'react'
+import  {requestHttp } from './../../config/HttpRequest'
 
 import {Title} from './../../Components/Title'
 import { CardDetail } from './components/CardDetail';
@@ -12,13 +13,27 @@ const buttonStyle = {
 }
 
 
-
 export const DetailPage = () =>{
-  // hook
+
+  const [experience,setExperience] = useState({}) 
   let {id} = useParams()
-  return ( <FramePage>
-         <Title label='Parapente San Felix'/>
-         <CardDetail/>
+  useEffect(()=>{
+      getDetailExperience()
+  },[])
+
+  const getDetailExperience= async() =>{
+      try {
+          const response = await requestHttp('get', `/experiences/getDetail/${id}`)
+          setExperience(response.data.experience)
+      } catch (error) {
+          console.error(error)
+      }
+  }
+
+  return ( 
+    <FramePage>
+         <Title label={experience.title}/>
+         <CardDetail {...experience}/>
          <Button isLink={true} linkTo = {`/booking/${id}`} label="¡Reserva Ahora!" style={ buttonStyle}/>
     </FramePage>
    )

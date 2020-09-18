@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export const Button = ({isLink= false , linkTo = '/',label = "Botón",type = "button" , style={}}) => (
+export const Button = ({disabled = false ,isLink= false , linkTo = '/',label = "Botón",type = "button" , style={}}) => (
       isLink 
-      ? <Link className = "button" style={style}  to={linkTo}>{label}</Link>
-      : <button className = "button" style={style} type={type}>{label}</button>
+      ? <Link to={linkTo}>
+      <button className="button" disabled={disabled} style={ style } type="button">{ label }</button>
+      </Link>
+      : <button className = "button" disabled={disabled} style={style} type={type}>{label}</button>
 )
