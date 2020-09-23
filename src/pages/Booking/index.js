@@ -2,6 +2,8 @@ import React, { useState , useEffect } from 'react';
 import { FramePage} from './../FramePage'
 import { Button} from './../../Components/Button'
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import  {requestHttp } from '../../config/HttpRequest' 
+import swal from 'sweetalert';
 
 export const BookingPage = () =>{
    
@@ -17,15 +19,30 @@ export const BookingPage = () =>{
        requestBooking()
    }
 
-    const requestBooking = () =>{
+    const requestBooking = async () =>{
             const body = {
-                id,
+                experience_id: id,
                 name,
                 phone,
-                email_address: email,
-                bookingDate
+                email,
+                booking_date: bookingDate
             }
-            console.log(body)
+            try {
+                const response = await requestHttp('post', '/booking',body)
+                swal({
+                    title: "Success!",
+                    text: response.data.status_message,
+                    icon: "success",
+                    button: "Aceptar",
+                  });
+            } catch (error) {
+                swal({
+                    title: "Error!",
+                    text: error,
+                    icon: "error",
+                    button: "Aceptar",
+                  });
+            }
     }
 
     useEffect(() => {
@@ -51,6 +68,7 @@ export const BookingPage = () =>{
             </div>
             <Button disabled={!isValidForm} type="submit" label="Reservar ahora"/>
         </form>
+
     </FramePage>
    )
 }

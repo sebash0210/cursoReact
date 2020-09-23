@@ -12,13 +12,13 @@ export const Ranking = () =>{
     const getTop5= async() =>{
         try {
             const response = await requestHttp('get', '/experiences/getTop5')
-            setTopExperiences(response.data.top)
+            setTopExperiences(response.data.top5)
         } catch (error) {
             console.error(error)
         }
     }
  return (  <section className="ranking">
-       { topexperiences.map(el => <Card key={el.id} { ...el} /> )
+       { topexperiences.map(el => <Card key={el._id} { ...el} /> )
                          }      
     </section>
 )}
